@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="../style/boot-app.css" />
+        <style>
+
+            input { border: 1px solid black;   }
+            input.error { border: 1px solid #FF3F3F; !important; }
+            label.error {
+                /*background: url("images/icon.png") no-repeat scroll 5% -13% #ffefef;*/
+                background: url("images/error.png") no-repeat scroll 2px 3px #ffefef;
+                padding: 4px 0 2px 29px;
+                margin-left: 164px;
+                width:150px;
+                display:block;
+                border: 1px solid #E0E0E0;
+            }
+            label.valid {
+                background: url('images/valid.png') no-repeat left bottom;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                padding-left: 16px;
+                vertical-align: -10px;
+                margin-left: .3em;
+                border:none;
+            }
+            label.control-label{
+                width: 160px;
+                text-align: right;
+            }
+            .captcha_code,.submit,#cardInfo{
+                margin-left: 164px;
+            }
+
+
+        </style>
+        <script src="jquery-1.11.2.js"></script>
+        <script src="../js/jquery.validate.js"></script>
+        <script src="checkCode.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="../js/html5shiv.min.js"></script>
+        <![endif]-->
+        <script>
+            $.validator.setDefaults({
+                submitHandler: function() {
+                    alert("表单数据验证通过");
+                }
+            });
+            $().ready(function() {
+                //生成验证码
+                createCode();
+                $("#signupForm").validate({
+                    success: "valid",
+                    rules: {
+                        username: {
+                            required: true,
+                            minlength: 6,
+                            username:true
+                        },
+                        money:{
+                            required: true,
+                            digits:true,
+                            money:true,
+                            min:100,
+                            max:300
+                        },
+                        password: {
+                            required: true,
+                            minlength: 5
+                        },
+                        confirm_password: {
+                            required: true,
+                            minlength: 5,
+                            equalTo: "#password"
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        mobile: {
+                            required: true,
+                            mobile: true
+                        },
+                        captcha:{
+                            required: true,
+                            verifycode:{
+                                param:code
+                            }
+                        },
+                        idcard:{
+                            required: true,
+                            idcard:true
+                        },
+                        creditcard: {
+                            required: true,
+                            creditcard: true
+                        }
+                    },
+                    messages: {
+                        username: {
+                            required: "请输入用户名",
+                            minlength: "用户名至少6个字符",
+                            username:"用户名只能以字母开头、可带数字、“_”、“-”的字符串"
+                        },
+                        password: {
+                            required: "请输入密码",
+                            minlength: "你的密码长度必须大于5个字符"
+                        },
+                        confirm_password: {
+                            required: "请输入密码",
+                            minlength: "你的密码长度必须大于5个字符",
+                            equalTo: "两次密码输入不匹配"
+                        },
+                        money:{
+                            required: "请输入资金",
+                            min:"请输入大于100的金额",
+                            max:"请输入小于300的金额",
+                            money:"金额为100的整数倍",
+                            digits:"请输入数字"
+                        },
+                        email: {
+                            required: "请输入邮箱地址",
+                            email: "请输入正确的邮箱格式"
+                        },
+                        mobile: {
+                            required: "请输入手机号码",
+                            mobile:  "请输入正确的手机号码"
+                        },
+                        creditcard: {
+                            required: "请输入信用卡号码",
+                            creditcard:  "请输入正确的信用卡号码"
+                        },
+                        idcard:{
+                            required: "请输入身份证号码",
+                            idcard:  "请输入正确的身份证号码"
+                        },
+                        captcha:{
+                            required: "请输入验证码",
+                            verifycode:"您输入的验证码有误，请重试"
+                        }
+                    }
+                });
+                $("#code").click(function(){
+                    createCode();
+                    $("#signupForm").validate().settings.rules.captcha.verifycode.param=code;
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <form  id="signupForm" method="post" action="">
+                <div>
+                    <label for="username" class="control-label">用户名</label>
+                    <input id="username" name="username" type="text" minlength="6" required username="true" data-msg-required="请输入用户名" data-msg-username="用户名只能以字母开头、可带数字、“_”、“-”的字符串" >
+                </div>
+                <div>
+                    <label for="money" class="control-label">资金</label>
+                    <input id="money" name="money" type="text" required digits="true" money="true" min="100" max="300" >
+                </div>
+                <div>
+                    <label for="password" class="control-label">密码</label>
+                    <input id="password" name="password" type="password" required="true" minlength="5" >
+                </div>
+                <div>
+                    <label for="confirm_password" class="control-label">确认密码</label>
+                    <input id="confirm_password" name="confirm_password" type="password" required="true" minlength="5" equalTo="#password">
+                </div>
+                <div>
+                    <label for="email" class="control-label">邮箱</label>
+                    <input id="email" name="email" type="email" required="true" email="true">
+                </div>
+                <div>
+                    <label for="mobile" class="control-label">手机号</label>
+                    <input id="mobile" name="mobile" type="text" required="true" mobile="true">
+                </div>
+                <div>
+                    <label for="creditcard" class="control-label">信用卡</label>
+                    <input id="creditcard" name="creditcard" type="text" required="true" creditcard="true" messages='[required: "请输入信用卡号码",creditcard:  "请输入正确的信用卡号码"]'>
+                </div>
+                <div>
+                    <label for="idcard" class="control-label">身份证</label>
+                    <input id="idcard" name="idcard" type="text">
+                    <div id="cardInfo"></div>
+                </div>
+                <div>
+                    <label for="captcha" class="control-label">验证码</label>
+                    <input type = "text" id = "captcha" name="captcha"  />
+                    <div class="captcha_code">请输入图片中的字符，大小写忽略:<input type = "button" id="code" /></div>
+
+
+
+                </div>
+                <div>
+                    <input class="submit" type="submit" value="验证">
+                </div>
+        </form>
+    </body>
+</html>

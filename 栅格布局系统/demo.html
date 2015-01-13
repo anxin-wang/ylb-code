@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	    <title>Layout-Demo</title>
+	    <link rel="stylesheet" href="css/grid.css" />
+	    <style>
+	    .show-grid [class^="col-"] {
+		    background-color: rgba(86, 61, 124, 0.15);
+		    
+		    padding-bottom: 10px;
+		    padding-top: 10px;
+		}
+
+
+		.row{
+		  margin-bottom:20px;
+		}
+		
+	    </style>
+	</head>
+<body>
+	<div><h1>固定宽度，响应式布局</h1></div>
+	<div class="container clearfix">
+	  <div class="row show-grid  clearfix">
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		</div>
+		<div class="row  show-grid clearfix">
+		  <div class="col-md-8">.col-md-8</div>
+		  <div class="col-md-4">.col-md-4</div>
+		</div>
+		<div class="row  show-grid clearfix">
+		  <div class="col-md-4">.col-md-4</div>
+		  <div class="col-md-4">.col-md-4</div>
+		  <div class="col-md-4">.col-md-4</div>
+		</div>
+		<div class="row  show-grid clearfix">
+		  <div class="col-md-6">.col-md-6</div>
+		  <div class="col-md-6">.col-md-6</div>
+		</div>
+
+
+
+		<div class="row show-grid  clearfix">
+		  <div class="col-lg-1">.col-lg-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		  <div class="col-lg-1">.col-md-1</div>
+		</div>
+		<div class="row  show-grid clearfix">
+		  <div class="col-md-8">.col-md-8</div>
+		  <div class="col-md-4">.col-md-4</div>
+		</div>
+		<div class="row  show-grid clearfix">
+		  <div class="col-md-4">.col-md-4</div>
+		  <div class="col-md-4">.col-md-4</div>
+		  <div class="col-md-4">.col-md-4</div>
+		</div>
+		<div class="row  show-grid clearfix">
+		  <div class="col-md-6">.col-md-6</div>
+		  <div class="col-md-6">.col-md-6</div>
+		</div>
+	</div>
+	<div><h1>弹性布局，响应式布局</h1></div>
+			<div class="container-fluid">
+			  <div class="row  show-grid">
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		  <div class="col-md-1">.col-md-1</div>
+		</div>
+		<div class="row  show-grid">
+		  <div class="col-md-8">.col-md-8</div>
+		  <div class="col-md-4">.col-md-4</div>
+		</div>
+		<div class="row  show-grid">
+		  <div class="col-md-4">.col-md-4</div>
+		  <div class="col-md-4">.col-md-4</div>
+		  <div class="col-md-4">.col-md-4</div>
+		</div>
+		<div class="row  show-grid">
+		  <div class="col-md-6">.col-md-6</div>
+		  <div class="col-md-6">.col-md-6</div>
+		</div>
+	</div>
+
+	<div><h1>左定右弹</h1></div>
+	<div class="clearfix fix-flex">
+		<div class="container clearfix fix-left">
+			<div class="row  show-grid">
+				<div class="col-md-12">左边定宽</div>
+		  		
+			</div>
+		</div>
+		<div class="container-fluid clearfix flex-right">
+			<div class="row  show-grid">
+				<div class="col-md-12">左边弹性</div>
+			</div>
+		</div>
+
+	</div>
+	<div><h1>右定左弹</h1></div>
+	<div class="fix-flex">
+		<div class="container-fluid clearfix flex-left">
+			<div class="row  show-grid">
+				<div class="col-md-12">左边弹性</div>
+			</div>
+		</div>
+		<div class="container fix-right">
+			<div class="row  show-grid">
+				<div class="col-md-12">右边定宽</div>		  		
+			</div>
+		</div>
+		
+	</div>
+
+
+
+</body>
+</html>

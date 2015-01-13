@@ -1,0 +1,79 @@
+//
+// Grid system
+// --------------------------------------------------
+
+// Fixed width
+
+@import "variables.less";
+@import "mixins.less";
+
+
+
+// // Reset 
+// @import "normalize.less";
+
+.container {
+  .container-fixed();
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+  }
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+  }
+}
+
+// Fluid container
+.container-fluid {
+  .container-fixed();
+}
+
+// Row
+.row {
+  .make-row();
+}
+
+// Columns
+ .make-grid-columns();
+
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@media (min-width: @screen-md-min) {
+  .make-grid(md);
+}
+
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: @screen-lg-min) {
+  .make-grid(lg);
+}
+
+//Flex-Fix Layout
+.fix-flex{
+  width:100%;
+  position:relative;
+}
+.fix-right{
+  .fix();  
+  right:0;  
+}
+.fix-left{
+  .fix();
+  left:0;  
+}
+
+.flex-left{
+  margin-right:@fix-column-width;     
+}
+
+.flex-right{
+  margin-left:@fix-column-width;      
+}
+
+
+

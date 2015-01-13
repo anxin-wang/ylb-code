@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../style/boot-app.css" />
+    <style>
+        input { border: 1px solid black; margin-bottom: .5em;  }
+        input.error { border: 1px solid red; }
+        label.error {
+            background: url('images/unchecked.gif') no-repeat;
+            padding-left: 16px;
+            margin-left: .3em;
+        }
+        label.valid {
+            background: url('images/checked.gif') no-repeat;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            padding-left: 16px;
+            margin-left: .3em;
+        }
+    </style>
+    <script src="jquery-1.11.2.js"></script>
+    <script src="jquery.validate.js"></script>
+    <!--<script src="checkCode.js"></script>-->
+
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script>
+
+        $.validator.setDefaults({
+            submitHandler: function() {
+                alert("submitted!");
+            }
+        });
+
+
+
+        $().ready(function() {
+
+            //var code=$("#code").val();
+
+
+            // validate signup form on keyup and submit
+            //$("#signupForm").valid();
+            console.log($("#signupForm").removeAttrs("method action"))
+            console.log($("#signupForm").rules())
+
+            //console.log($("#signupForm").validate())
+
+
+            $("#signupForm").validate({
+                success: "valid",
+                onkeyup:false,
+                rules: {
+                    username: {
+                        required: true,
+                        minlength: 6,
+                        username:true
+                    },
+                    money:{
+                        required: true,
+                        digits:true,
+                        money:true,
+                        min:100,
+                        max:300
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    confirm_password: {
+                        required: true,
+                        minlength: 5,
+                        equalTo: "#password"
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    mobile: {
+                        required: true,
+                        mobile: true
+                    },
+                    verify_code:{
+                        verifycode:{
+                            param:"QE34"
+                        }
+                    },
+                    idcard:{
+                        required: true,
+                        idcard:true
+                    },
+                    creditcard: {
+                        required: true,
+                        creditcard: true
+                    },
+                    topic: {
+                        required: "#newsletter:checked",
+                        minlength: 2
+                    },
+                    agree: "required"
+                },
+                messages: {
+                    username: {
+                        required: "请输入用户名",
+                        minlength: "用户名至少6个字符",
+                        username:"用户名只能以字母开头、可带数字、“_”、“-”的字符串"
+                    },
+                    password: {
+                        required: "请输入密码",
+                        minlength: "你的密码长度必须大于5个字符"
+                    },
+                    confirm_password: {
+                        required: "请输入密码",
+                        minlength: "你的密码长度必须大于5个字符",
+                        equalTo: "两次密码输入不匹配"
+                    },
+                    money:{
+                        required: "请输入资金",
+                        min:"请输入大于100的金额",
+                        max:"请输入小于300的金额",
+                        money:"金额为100的整数倍",
+                        digits:"请输入数字"
+                    },
+                    email: {
+                        required: "请输入邮箱地址",
+                        email: "请输入正确的邮箱格式"
+                    },
+                    mobile: {
+                        required: "请输入手机号码",
+                        mobile:  "请输入正确的手机号码"
+                    },
+                    creditcard: {
+                        required: "请输入信用卡号码",
+                        creditcard:  "请输入正确的信用卡号码"
+                    },
+                    idcard:{
+                        required: "请输入身份证号码",
+                        idcard:  "请输入正确的身份证号码"
+                    }
+                }
+            });
+
+
+
+
+
+        });
+    </script>
+
+</head>
+<body>
+    <form  id="signupForm" method="get" action="">
+
+
+            <p>
+                <label for="username">用户名</label>
+                <input id="username" name="username" type="text" minlength="6" required username="true" data-msg-required="请输入用户名" data-msg-username="用户名只能以字母开头、可带数字、“_”、“-”的字符串" >
+            </p>
+            <p>
+                <label for="money">资金</label>
+                <input id="money" name="money" type="text" required digits="true" money="true" min="100" max="300" >
+            </p>
+            <p>
+                <label for="password">密码</label>
+                <input id="password" name="password" type="password" required="true" minlength="5" >
+            </p>
+            <p>
+                <label for="confirm_password">确认密码</label>
+                <input id="confirm_password" name="confirm_password" type="password" required="true" minlength="5" equalTo="#password">
+            </p>
+            <p>
+                <label for="email">邮箱</label>
+                <input id="email" name="email" type="email" required="true" email="true">
+            </p>
+            <p>
+                <label for="mobile">手机号</label>
+                <input id="mobile" name="mobile" type="text" required="true" mobile="true">
+            </p>
+            <p>
+                <label for="mobile">信用卡</label>
+                <input id="creditcard" name="creditcard" type="text" required="true" creditcard="true" messages='[required: "请输入信用卡号码",creditcard:  "请输入正确的信用卡号码"]'>
+            </p>
+            <p>
+                <label for="mobile">身份证</label>
+                <input id="idcard" name="idcard" type="text"  >
+            </p>
+
+        <div>
+            <input type = "text" id = "input" name="verify_code"  />
+            <!--<input type = "button" id="code" onclick="createCode()"/>-->
+            <!--<input type = "button" value = "验证" onclick = ""/>-->
+        </div>
+
+
+
+        <p>
+            <input class="submit" type="submit" value="Submit">
+        </p>
+
+    </form>
+
+
+</body>
+</html>
