@@ -89,6 +89,11 @@
   .loop-grid-columns(@grid-columns, @class, offset);
 }
 
+//不在栅格系统里，但使用栅格系统的宽度
+.make-grid-without-float(@name){
+  .loop-grid-columns(@grid-columns, @name, width);
+}
+
 // Flex-Fix
 .fix(@width:@fix-column-width){
   width:@width;

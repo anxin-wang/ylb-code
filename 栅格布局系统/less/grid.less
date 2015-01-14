@@ -1,16 +1,14 @@
 //
 // Grid system
 // --------------------------------------------------
+// Author:Sophie
+// E-mail:wangjiayan@yonglibao.com
+// Date:2015-01-11
 
 // Fixed width
 
 @import "variables.less";
 @import "mixins.less";
-
-
-
-// // Reset 
-// @import "normalize.less";
 
 .container {
   .container-fixed();
@@ -53,6 +51,8 @@
   .make-grid(lg);
 }
 
+.make-grid-without-float(width);
+
 //Flex-Fix Layout
 .fix-flex{
   width:100%;
@@ -74,6 +74,8 @@
 .flex-right{
   margin-left:@fix-column-width;      
 }
+
+
 
 
 
