@@ -130,7 +130,7 @@
 	</div>
 
 	<div><h1>左定右弹</h1></div>
-	<div class="clearfix fix-flex">
+	<div class="container fix-flex">
 		<div class="container clearfix fix-left">
 			<div class="row  show-grid">
 				<div class="col-md-12">左边定宽</div>
@@ -144,11 +144,11 @@
 		</div>
 
 	</div>
-	<div><h1>右定左弹</h1></div>
-	<div class="fix-flex">
-		<div class="container-fluid clearfix flex-left">
-			<div class="row  show-grid">
-				<div class="col-md-12">左边弹性</div>
+	<div><h1>右定左弹(position:absolute)</h1></div>
+	<div class="fix-flex" >
+		<div class="container-fluid clearfix flex-left" >
+			<div class="row  show-grid" >
+				<div class="col-md-12" >左边弹性</div>
 			</div>
 		</div>
 		<div class="container fix-right">
@@ -156,7 +156,14 @@
 				<div class="col-md-12">右边定宽</div>		  		
 			</div>
 		</div>
-		
+	</div>
+
+	<div><h1>右定左弹(position:relative)</h1></div>
+	<div class="container" style="position:relative" >
+		<div class="flex-left" >
+			<div class="inner">左边弹性</div>
+		</div>
+		<div class="fix-right">右边定宽</div>
 	</div>
 
 	<div><h1>仅仅只是宽度值，不布局</h1></div>

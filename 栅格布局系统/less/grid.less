@@ -53,27 +53,40 @@
 
 .make-grid-without-float(width);
 
+
+
 //Flex-Fix Layout
-.fix-flex{
-  width:100%;
-  position:relative;
+.flex-left{
+    float: left;
+    width: 100%;
+}
+.flex-left .inner{
+  margin-right: @fix-column-width;
 }
 .fix-right{
-  .fix();  
-  right:0;  
-}
-.fix-left{
-  .fix();
-  left:0;  
-}
-
-.flex-left{
-  margin-right:@fix-column-width;     
+  float: right;
+  margin-left: -@fix-column-width;
+  position: relative;
+  width: @fix-column-width;
 }
 
 .flex-right{
-  margin-left:@fix-column-width;      
+  float:right;
+  width: 100%;
 }
+.flex-right .inner{
+  margin-left: @fix-column-width;
+}
+.fix-left{
+  float: left;
+  margin-right: -@fix-column-width;
+  position: relative;
+  width: @fix-column-width;
+}
+
+
+
+
 
 
 

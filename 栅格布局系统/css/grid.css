@@ -36,7 +36,6 @@
  .col-md-1, .col-lg-1,  .col-md-2, .col-lg-2,  .col-md-3, .col-lg-3,  .col-md-4, .col-lg-4,  .col-md-5, .col-lg-5,  .col-md-6, .col-lg-6,  .col-md-7, .col-lg-7,  .col-md-8, .col-lg-8,  .col-md-9, .col-lg-9,  .col-md-10, .col-lg-10,  .col-md-11, .col-lg-11,  .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
-  float: left;
 }
 @media (min-width: 992px) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
@@ -390,27 +389,29 @@
 .col-width-1 {
   width: 8.33333333%;
 }
-.fix-flex {
-  width: 100%;
-  position: relative;
-}
-.fix-right {
-  width: 300px;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  right: 0;
-}
-.fix-left {
-  width: 300px;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  left: 0;
-}
 .flex-left {
+  float: left;
+  width: 100%;
+}
+.flex-left .inner {
   margin-right: 300px;
 }
+.fix-right {
+  float: right;
+  margin-left: -300px;
+  position: relative;
+  width: 300px;
+}
 .flex-right {
+  float: right;
+  width: 100%;
+}
+.flex-right .inner {
   margin-left: 300px;
+}
+.fix-left {
+  float: left;
+  margin-right: -300px;
+  position: relative;
+  width: 300px;
 }

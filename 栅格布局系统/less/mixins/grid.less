@@ -3,7 +3,7 @@
 // Generate semantic grid columns with these mixins.
 
 // Centered container element
-.container-fixed(@gutter: @grid-gutter-width) {
+.container-fixed() {
   margin-right: auto;
   margin-left: auto;
   
@@ -11,13 +11,13 @@
 }
 
 // Creates a wrapper for a series of columns
-.make-row(@gutter: @grid-gutter-width) {  
+.make-row() {  
   &:extend(.clearfix all);
 }
 
 
 // Generate the medium columns
-.make-md-column(@columns; @gutter: @grid-gutter-width) {
+.make-md-column(@columns) {
   position: relative;
   min-height: 1px;
   
@@ -44,7 +44,7 @@
 }
 
 // Generate the large columns
-.make-lg-column(@columns; @gutter: @grid-gutter-width) {
+.make-lg-column(@columns) {
   position: relative;
   min-height: 1px;
   
