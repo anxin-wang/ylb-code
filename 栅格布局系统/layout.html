@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>布局示例</title>
-  <link rel="stylesheet" href="css/grid.css">
-  <link rel="stylesheet" href="css/docs.css">
+  <link rel="stylesheet" href="style/grid.css">
+  <link rel="stylesheet" href="style/docs.css">
   <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
 
 </head>
@@ -50,16 +50,15 @@
 
       </div>
     </div>
-  </div>
+    </div>
 
-
-
-  <div class="container" id="fixed-layout">
+    <div class="container" id="fixed-layout">
     <div class="row show-grid">
       <div class="page-header">
        <h1>固定宽度</h1>
       </div>
     </div>
+
     <h3>十二列等宽</h3>
     <div class="row show-grid">
       <div class="col-md-1">我是列1</div>
@@ -75,18 +74,21 @@
       <div class="col-md-1">我是列11</div>
       <div class="col-md-1">我是列12</div>
     </div>
-    <h3>两列不等宽</h3>
+
+     <h3>两列不等宽</h3>
     <div class="row  show-grid ">
       <div class="col-md-8">我是列1</div>
       <div class="col-md-4">我是列2</div>
     </div>
+
     <h3>三列等宽</h3>
     <div class="row  show-grid ">
       <div class="col-md-4">我是列1</div>
       <div class="col-md-4">我是列2</div>
       <div class="col-md-4">我是列3</div>
     </div>
-    <h3>两列等宽</h3>
+
+     <h3>两列等宽</h3>
     <div class="row  show-grid ">
       <div class="col-md-6">我是列1</div>
       <div class="col-md-6">我是列2</div>
@@ -128,7 +130,7 @@
         </div>
   </div>
 
-  <div id="left-fix-right-flex"><h1>两列布局，左边定宽，右边自适应</h1></div>
+  <!--<div id="left-fix-right-flex"><h1>两列布局，左边定宽，右边自适应</h1></div>
   <div class="clearfix fix-flex">
     <div class="container fix-left">
       <div class="row  show-grid">
@@ -144,8 +146,6 @@
 
   </div>
 
-
-
   <div id="right-fix-left-flex"><h1>两列布局，左边自适应，右边定宽</h1></div>
   <div class="fix-flex">
     <div class="container-fluid flex-left">
@@ -159,7 +159,26 @@
       </div>
     </div>
     
+  </div>-->
+
+  <div><h1>两列布局，左边定宽，右边自适应</h1></div>
+  <div class="container" style="position:relative" >    
+    <div class="fix-left">左边定宽</div>
+    <div class="flex-right" >
+      <div class="inner">右边自适应</div>
+    </div>
   </div>
+
+  
+  <div><h1>两列布局，左边自适应，右边定宽</h1></div>
+  <div class="container" style="position:relative" >
+    <div class="flex-left" >
+      <div class="inner">左边自适应</div>
+    </div>
+    <div class="fix-right">右边定宽</div>
+  </div>
+
+
 
   <div id="width"><h1>自适应宽度，不参与布局系统</h1></div>
   <div class="col-width-1">1/12宽</div>
@@ -175,6 +194,5 @@
   <div class="col-width-11">11/12宽</div>
   <div class="col-width-12">全宽</div>
 
-  <!--<script src="../lib/respond/js/respond.js"></script>-->
-</body>
+  </body>
 </html>
