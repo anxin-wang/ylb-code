@@ -38,7 +38,7 @@
 
         </style>
         <script src="jquery-1.11.2.js"></script>
-        <script src="../js/jquery.validate.js"></script>
+        <script src="jquery.validate.js"></script>
         <script src="checkCode.js"></script>
 
         <!--[if lt IE 9]>
@@ -60,6 +60,9 @@
                             required: true,
                             minlength: 6,
                             username:true
+                        },
+                        username_mobile:{
+                            usernameormobile:true
                         },
                         money:{
                             required: true,
@@ -105,6 +108,9 @@
                             required: "请输入用户名",
                             minlength: "用户名至少6个字符",
                             username:"用户名只能以字母开头、可带数字、“_”、“-”的字符串"
+                        },
+                        username_mobile:{
+                            usernameormobile:"请输入正确的用户名/手机号"
                         },
                         password: {
                             required: "请输入密码",
@@ -156,6 +162,10 @@
                 <div>
                     <label for="username" class="control-label">用户名</label>
                     <input id="username" name="username" type="text" minlength="6" required username="true" data-msg-required="请输入用户名" data-msg-username="用户名只能以字母开头、可带数字、“_”、“-”的字符串" >
+                </div>
+                <div>
+                    <label for="username" class="control-label">用户名或手机号码</label>
+                    <input id="username" name="username_mobile" type="text">
                 </div>
                 <div>
                     <label for="money" class="control-label">资金</label>
